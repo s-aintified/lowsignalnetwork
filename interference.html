@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Interference // Low Signal Network</title>
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Oswald:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="ls-head">
+<div class="ls-topline">
+  <span><b>LWSGNL</b> · 91.4 FM · <span class="blink">on air, probably</span></span>
+  <span class="ls-topline-r">not affiliated with anything official</span>
+</div>
+
+<a href="index.html" style="text-decoration:none">
+<div class="ls-label">
+  <span>low signal network</span>
+  <small>THE MINI SITE // NOT THE BOARD</small>
+</div>
+</a>
+
+<nav class="ls-nav"><a href="index.html" class="">HOME</a><a href="quiz-board.html" class="">QUIZ BOARD</a><a href="interference.html" class="active">INTERFERENCE</a><a href="static-arcade.html" class="">STATIC ARCADE</a><a href="signal-report.html" class="">SIGNAL REPORT</a><a href="badge-case.html" class="">BADGE CASE</a></nav>
+</div>
+
+<main id="page">
+
+<section class="page-title">
+  <div>
+    <span class="eyebrow">CHANNEL 02 // RANDOM PLOT INTERRUPTION</span>
+    <h1>INTER<span>FERENCE.</span></h1>
+    <p>Pick the type of trouble you want. The receiver handles the rest.</p>
+  </div>
+  <div class="page-frequency">
+    <span>INTERFERENCE LEVEL</span>
+    <strong data-int-level>03</strong>
+    <small>UNSTABLE SIGNAL</small>
+  </div>
+</section>
+
+<section class="interference-console radio-panel" data-interference>
+  <div class="console-top">
+    <span>RECEIVER // PLOT SYNTHESIZER</span>
+    <span class="status-light"><i></i> READY</span>
+  </div>
+
+  <div class="interference-layout">
+    <div class="int-controls">
+      <div class="control-group">
+        <label>MODE</label>
+        <div class="filter-row" data-int-modes>
+          <button class="active" data-mode="any">ANYTHING</button>
+          <button data-mode="romantic">ROMANTIC</button>
+          <button data-mode="social">SOCIAL</button>
+          <button data-mode="danger">DANGER</button>
+          <button data-mode="work">WORK</button>
+          <button data-mode="chaos">CHAOS</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label>PARTICIPANTS</label>
+        <div class="int-input-grid">
+          <input data-char-a placeholder="character one">
+          <input data-char-b placeholder="character two">
+        </div>
+      </div>
+
+      <button class="radio-btn primary wide" data-generate-int>GENERATE INTERFERENCE</button>
+    </div>
+
+    <div class="int-display">
+      <span class="display-label">CURRENT TRANSMISSION</span>
+      <div class="int-id" data-int-id>NO SIGNAL</div>
+      <h2 data-int-title>WAITING FOR INTERFERENCE.</h2>
+      <p data-int-summary>Choose a mode and hit generate. The network will hand you a location, setup, complication and optional twist.</p>
+
+      <div class="int-components hidden" data-int-components>
+        <div><span>LOCATION</span><strong data-int-location></strong></div>
+        <div><span>SETUP</span><strong data-int-setup></strong></div>
+        <div><span>COMPLICATION</span><strong data-int-complication></strong></div>
+        <div><span>OPTIONAL TWIST</span><strong data-int-twist></strong></div>
+      </div>
+
+      <div class="int-actions hidden" data-int-actions>
+        <button class="radio-btn" data-reroll-one>REROLL COMPLICATION</button>
+        <button class="radio-btn" data-copy-int>COPY PROMPT</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="network-section compact">
+  <div class="network-heading">
+    <div><span class="eyebrow">QUICK STATIC</span><h2>NO CONTEXT <span>MODE.</span></h2></div>
+    <p>For when you don't even want to choose a category. Dangerous freedom.</p>
+  </div>
+  <div class="quick-chaos-grid" data-quick-chaos></div>
+</section>
+
+</main>
+
+<footer class="network-footer">
+  <span><b>LWSGNL</b> // LOW SIGNAL NETWORK</span>
+  <span>91.4 FM · end transmission</span>
+</footer>
+
+<div class="toast" data-toast></div>
+<script src="config.js"></script>
+<script src="pets.js"></script>
+<script src="app.js"></script>
+<script src="effects.js"></script>
+
+</body>
+</html>

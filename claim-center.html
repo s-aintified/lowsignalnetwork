@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claim Center // Low Signal Network</title>
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Oswald:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="ls-head">
+<div class="ls-topline">
+  <span><b>LWSGNL</b> · 91.4 FM · <span class="blink">on air, probably</span></span>
+  <span class="ls-topline-r">not affiliated with anything official</span>
+</div>
+
+<a href="index.html" style="text-decoration:none">
+<div class="ls-label">
+  <span>low signal network</span>
+  <small>THE MINI SITE // NOT THE BOARD</small>
+</div>
+</a>
+
+<nav class="ls-nav"><a href="index.html" class="active">HOME</a><a href="quiz-board.html" class="">QUIZ BOARD</a><a href="interference.html" class="">INTERFERENCE</a><a href="static-arcade.html" class="">STATIC ARCADE</a><a href="signal-report.html" class="">SIGNAL REPORT</a><a href="badge-case.html" class="">BADGE CASE</a></nav>
+</div>
+
+<main id="page">
+
+<section class="page-title"><div><span class="eyebrow">BADGE CASE // CLAIM EXPORT</span><h1>CLAIM <span>CENTER.</span></h1><p>Turn your local unlock history into a clean claim receipt you can submit on the board.</p></div><div class="badge-tally"><span>UNLOCKED</span><strong><b data-claim-count>0</b></strong><small>LOCAL BADGES</small></div></section>
+<section class="claim-layout">
+  <div class="radio-panel claim-form"><span class="eyebrow">CLAIM DETAILS</span><label>JCINK CHARACTER NAME<input data-claim-character placeholder="character name"></label><label>PROFILE URL<input data-claim-profile placeholder="https://lowsignal.jcink.net/index.php?showuser=..."></label><label>SELECT BADGES<div class="claim-checks" data-claim-checks></div></label><div class="claim-actions"><button class="radio-btn primary" data-build-claim>BUILD CLAIM RECEIPT</button><button class="radio-btn" data-download-proof>DOWNLOAD PROOF PNG</button></div></div>
+  <div class="radio-panel claim-output"><span class="display-label">CLAIM RECEIPT</span><pre data-claim-output>No badges selected.</pre><button class="radio-btn" data-copy-claim>COPY TEXT</button></div>
+</section>
+
+</main>
+
+<footer class="network-footer">
+  <span><b>LWSGNL</b> // LOW SIGNAL NETWORK</span>
+  <span>91.4 FM · end transmission</span>
+</footer>
+
+<div class="toast" data-toast></div>
+<script src="config.js"></script>
+<script src="pets.js"></script>
+<script src="app.js"></script>
+<script src="effects.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Static Arcade // Low Signal Network</title>
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Oswald:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="ls-head">
+<div class="ls-topline">
+  <span><b>LWSGNL</b> · 91.4 FM · <span class="blink">on air, probably</span></span>
+  <span class="ls-topline-r">not affiliated with anything official</span>
+</div>
+
+<a href="index.html" style="text-decoration:none">
+<div class="ls-label">
+  <span>low signal network</span>
+  <small>THE MINI SITE // NOT THE BOARD</small>
+</div>
+</a>
+
+<nav class="ls-nav"><a href="index.html" class="">HOME</a><a href="quiz-board.html" class="">QUIZ BOARD</a><a href="interference.html" class="">INTERFERENCE</a><a href="static-arcade.html" class="active">STATIC ARCADE</a><a href="signal-report.html" class="">SIGNAL REPORT</a><a href="badge-case.html" class="">BADGE CASE</a></nav>
+</div>
+
+<main id="page">
+
+<section class="page-title arcade-title">
+  <div><span class="eyebrow">CHANNEL 03 // WEB TOYS // 404 ENTERTAINMENT SIGNAL</span><h1>STATIC <span>ARCADE.</span></h1><p>Low stakes. High nostalgia. Questionable spiritual guidance.</p></div>
+</section>
+
+<section class="arcade-index">
+  <a href="#blinkie"><span>TOY 001</span><strong>BLINKIE MAKER</strong><i>↘</i></a>
+  <a href="#pets"><span>TOY 002</span><strong>SIGNAL PETS</strong><i>↘</i></a>
+  <a href="#oracle"><span>TOY 003</span><strong>FORTUNE TELLER</strong><i>↘</i></a>
+  <a href="#compat"><span>TOY 004</span><strong>COMPATIBILITY</strong><i>↘</i></a>
+  <a href="#button"><span>TOY 005</span><strong>88×31 BUTTON MAKER</strong><i>↘</i></a>
+</section>
+
+<section class="arcade-tool radio-panel" id="blinkie" data-blinkie>
+  <div class="tool-heading"><div><span class="eyebrow">TOY 001 // CLASSIC WEB GRAPHICS</span><h2>BLINKIE <span>MAKER.</span></h2></div><span class="tool-number">001</span></div>
+  <div class="tool-layout">
+    <div class="tool-controls">
+      <label>BLINKIE TEXT<input maxlength="28" data-blinkie-text value="BAD INFLUENCE"></label>
+      <label>STYLE<select data-blinkie-style>
+        <optgroup label="THEMES"><option value="static">STATIC</option><option value="hotline">HOTLINE</option><option value="night">NIGHT CALL</option><option value="warning">WARNING</option><option value="soft">SOFT SIGNAL</option><option value="dusk">DUSK</option><option value="mono">MONOCHROME</option><option value="dream">DAYDREAM</option><option value="ember">EMBER</option></optgroup>
+        <optgroup label="MEMBERGROUPS"><option value="grp_static">STATIC (GROUP)</option><option value="grp_wavelength">WAVELENGTH</option><option value="grp_deadair">DEAD AIR</option><option value="grp_onair">ON AIR</option><option value="grp_echo">ECHO</option><option value="grp_signalboost">SIGNAL BOOST</option><option value="grp_whitenoise">WHITE NOISE</option><option value="grp_piratesignal">PIRATE SIGNAL</option><option value="grp_backchannel">BACKCHANNEL</option><option value="grp_longwave">LONGWAVE</option></optgroup>
+      </select></label>
+      <label>ICON<select data-blinkie-icon><option>★</option><option>♥</option><option>✦</option><option>☏</option><option>⚠</option><option>⌁</option><option>☆</option><option>♦</option><option>▲</option><option>●</option><option>◆</option><option>✪</option><option>☾</option><option>☼</option><option>⚡</option><option>✉</option></select></label>
+      <label>SIZE<select data-blinkie-size><option value="standard">150 × 20 (CLASSIC)</option><option value="wide">200 × 32 (WIDE)</option></select></label>
+      <label class="checkbox-field"><input type="checkbox" data-blinkie-texture><span>BACKGROUND TEXTURE (STATIC DOTS)</span></label>
+      <button class="radio-btn primary" data-download-blinkie>DOWNLOAD PNG</button>
+    </div>
+    <div class="tool-preview"><span class="display-label">LIVE PREVIEW // 150 × 20</span><canvas width="600" height="80" data-blinkie-canvas></canvas><small>Rendered at 4× for a crisp download.</small></div>
+  </div>
+</section>
+
+<section class="arcade-tool radio-panel" id="pets" data-pets>
+  <div class="tool-heading"><div><span class="eyebrow">TOY 002 // DIGITAL ADOPTABLES</span><h2>SIGNAL <span>PETS.</span></h2></div><span class="tool-number">002</span></div>
+  <div class="pet-scan-strip">
+    <div><span class="display-label">WILD SIGNAL SCANNER</span><strong>SCAN THE FREQUENCY FOR A RANDOM CREATURE.</strong><small>Rare and glitched species really are rarer. August has one seasonal visitor.</small></div>
+    <button class="radio-btn primary" data-scan-pet>SCAN FOR PET</button>
+    <a class="radio-btn" href="pet-collection.html">MY COLLECTION</a>
+  </div>
+  <div class="pets-layout">
+    <div class="pet-catalog" data-pet-catalog></div>
+    <div class="pet-adoption">
+      <span class="display-label">ADOPTION TERMINAL</span>
+      <div class="pet-stage"><div class="pixel-pet-large" data-pet-visual></div><div class="pet-rarity" data-pet-rarity>COMMON</div><strong data-pet-species>STATIC SPRITE</strong><small data-pet-trait>feeds on unattended browser tabs</small></div>
+      <input data-pet-name placeholder="name your creature">
+      <button class="radio-btn primary wide" data-adopt-pet>ADOPT + DOWNLOAD CARD</button>
+    </div>
+  </div>
+</section>
+
+<section class="arcade-tool radio-panel" id="oracle" data-oracle>
+  <div class="tool-heading"><div><span class="eyebrow">TOY 003 // RADIO DIVINATION</span><h2>FORTUNE <span>TELLER.</span></h2></div><span class="tool-number">003</span></div>
+  <div class="oracle-layout">
+    <div class="oracle-ball"><div class="oracle-core"><span data-oracle-symbol>?</span></div><div class="oracle-rings"></div></div>
+    <div class="oracle-console"><span class="display-label">ASK THE SIGNAL</span><textarea data-oracle-question placeholder="Should I text them? Is this a terrible idea? Does he know?"></textarea><button class="radio-btn primary" data-oracle-ask>TUNE FOR ANSWER</button><div class="oracle-answer" data-oracle-answer>THE SIGNAL IS LISTENING.</div><small class="oracle-tag" data-oracle-tag></small></div>
+  </div>
+</section>
+
+<section class="arcade-tool radio-panel" id="compat" data-compat>
+  <div class="tool-heading"><div><span class="eyebrow">TOY 004 // EXTREMELY SCIENTIFIC</span><h2>COMPATIBILITY <span>CALCULATOR.</span></h2></div><span class="tool-number">004</span></div>
+  <div class="compat-layout">
+    <div class="compat-inputs"><label>FIRST NAME<input data-compat-a placeholder="character one"></label><span>×</span><label>SECOND NAME<input data-compat-b placeholder="character two"></label><button class="radio-btn primary" data-compat-run>CALCULATE SIGNAL</button></div>
+    <div class="compat-result"><span class="display-label">MATCH STRENGTH</span><strong data-compat-score>--%</strong><h3 data-compat-title>WAITING FOR TWO SIGNALS.</h3><p data-compat-copy>Enter two names and let an absolutely unlicensed algorithm judge them.</p></div>
+  </div>
+</section>
+
+<section class="arcade-tool radio-panel" id="button" data-button-maker>
+  <div class="tool-heading"><div><span class="eyebrow">TOY 005 // 88 × 31 BUTTONS</span><h2>BUTTON <span>MAKER.</span></h2></div><span class="tool-number">005</span></div>
+  <div class="tool-layout">
+    <div class="tool-controls"><label>BUTTON TEXT<input maxlength="18" data-button-text value="LOW SIGNAL"></label><label>SUBTEXT<input maxlength="14" data-button-subtext value="91.4 FM"></label><label>THEME<select data-button-style>
+        <optgroup label="THEMES"><option value="amber">AMBER</option><option value="cyan">CYAN</option><option value="violet">VIOLET</option><option value="rose">ROSE</option><option value="lime">LIME</option><option value="mint">MINT</option><option value="slate">SLATE</option><option value="frost">FROST</option><option value="ember">EMBER</option></optgroup>
+        <optgroup label="MEMBERGROUPS"><option value="grp_static">STATIC</option><option value="grp_wavelength">WAVELENGTH</option><option value="grp_deadair">DEAD AIR</option><option value="grp_onair">ON AIR</option><option value="grp_echo">ECHO</option><option value="grp_signalboost">SIGNAL BOOST</option><option value="grp_whitenoise">WHITE NOISE</option><option value="grp_piratesignal">PIRATE SIGNAL</option><option value="grp_backchannel">BACKCHANNEL</option><option value="grp_longwave">LONGWAVE</option></optgroup>
+      </select></label>
+      <label>ICON (OPTIONAL)<select data-button-icon><option value="">NONE</option><option>★</option><option>♥</option><option>✦</option><option>☏</option><option>⚠</option><option>⌁</option></select></label>
+      <label>BORDER<select data-button-border><option value="solid">SOLID</option><option value="dashed">DASHED</option></select></label>
+      <label>SIZE<select data-button-size><option value="classic">88 × 31 (CLASSIC)</option><option value="wide">150 × 31 (WIDE)</option></select></label>
+      <button class="radio-btn primary" data-download-button>DOWNLOAD PNG</button></div>
+    <div class="tool-preview"><span class="display-label">LIVE PREVIEW // 88 × 31</span><canvas width="352" height="124" data-button-canvas></canvas></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="network-footer">
+  <span><b>LWSGNL</b> // LOW SIGNAL NETWORK</span>
+  <span>91.4 FM · end transmission</span>
+</footer>
+
+<div class="toast" data-toast></div>
+<script src="config.js"></script>
+<script src="pets.js"></script>
+<script src="app.js"></script>
+<script src="effects.js"></script>
+
+</body>
+</html>
