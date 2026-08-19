@@ -24,7 +24,7 @@ const LSN_QUIZZES = [
       {q:"When conflict gets ugly, you usually...", a:[["Say the hard thing.","open"],["Get colder.","dead"],["Get sharper.","emergency"],["Say something funny that is not actually funny.","static"]]},
       {q:"Pick the sentence that sounds most like you.", a:[["If I want you, you will know.","open"],["You only know what I let you know.","midnight"],["Rules are suggestions with branding.","pirate"],["I still think about it sometimes.","echo"]]},
       {q:"Your worst habit in relationships?", a:[["Trying to fix everything.","emergency"],["Disappearing to process.","dead"],["Sending mixed signals by accident.","static"],["Returning to things I should leave buried.","echo"]]},
-      {q:"Where are you most yourself?", a:[["In a room full of people I chose.","open"],["Late at night with one person.","midnight"],["Anywhere I was told not to be.","pirate"],["When everything is falling apart.","emergency"]]},
+      {q:"Where are you most yourself?", a:[["In a room full of people I chose.","open"],["Late at night with one person.","midnight"],["Anywhere I was told not to be.","pirate"],["Alone.","emergency"]]},
       {q:"What follows you around?", a:[["Old feelings.","echo"],["Unfinished conversations.","static"],["People trying to figure me out.","dead"],["Consequences.","pirate"]]}
     ]
   },
@@ -247,7 +247,13 @@ const LSN_QUIZZES = [
       {q:"What happens when you go quiet for a while?",a:[["That is simply my default state.","deadair"],["People start missing the noise.","echo"],["Everyone suddenly notices something's off.","whitenoise"],["The information stops moving and everyone feels it.","backchannel"]]},
       {q:"Pick the compliment that fits best.",a:[["You make everything around you louder, in a good way.","signalboost"],["You're impossible to fake a connection with.","wavelength"],["You do exactly what you want and somehow it works.","piratesignal"],["You're the most consistent person I know.","longwave"]]},
       {q:"How do you handle being the center of attention?",a:[["I was born for this, frankly.","onair"],["I thrive in it and slightly overheat.","static"],["I redirect it to somebody else immediately.","backchannel"],["I would rather not, thank you.","deadair"]]},
-      {q:"What's your actual function in the group?",a:[["Hype and momentum.","signalboost"],["Keeping the whole thing stable.","whitenoise"],["Making sure nobody forgets what happened.","echo"],["Doing the thing nobody else is willing to do.","piratesignal"]]}
+      {q:"What's your actual function in the group?",a:[["Hype and momentum.","signalboost"],["Keeping the whole thing stable.","whitenoise"],["Making sure nobody forgets what happened.","echo"],["Doing the thing nobody else is willing to do.","piratesignal"]]},
+      {q:"What's your actual comfort zone in a conversation?",a:[["One-on-one, something specific and real.","wavelength"],["Wherever the energy is loudest.","static"],["Anywhere people are already looking my way.","onair"],["Nowhere, honestly. I'd rather listen.","deadair"]]},
+      {q:"How do you show someone you actually like them?",a:[["I match their exact frequency, nobody else gets that version of me.","wavelength"],["I hype them up loudly and often.","signalboost"],["I remember every small thing they've ever said.","echo"],["I just... stay. Consistently.","whitenoise"]]},
+      {q:"A new person joins your group. What's your read on them?",a:[["I either click with them immediately or not at all.","wavelength"],["I test whether they'll break a rule with me.","piratesignal"],["I wait. A real read takes months, not minutes.","longwave"],["I already know things about them nobody's said out loud.","backchannel"]]},
+      {q:"What do people misunderstand about you most?",a:[["That I'm hard to reach. I'm not, you just need the right approach.","wavelength"],["That the noise means something's wrong. It usually doesn't.","static"],["That I'm 'too much.' I'd argue there's no such thing.","signalboost"],["That I don't care just because I'm not loud about it.","longwave"]]},
+      {q:"Pick the outcome you'd actually be proud of.",a:[["Everyone remembers exactly where they were when it happened.","onair"],["People are still talking about it years later.","echo"],["I got away with something nobody thought I could.","piratesignal"],["Nobody ever needed to know it was me.","deadair"]]},
+      {q:"Your group project is falling apart. What's your move?",a:[["Rally everyone, loudly, immediately.","signalboost"],["Quietly do it my own way and let the results speak.","piratesignal"],["Keep doing my part reliably and let it hold together.","whitenoise"],["Work the actual problem behind the scenes.","backchannel"]]}
     ]}
 
 ];
