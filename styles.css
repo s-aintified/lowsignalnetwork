@@ -294,14 +294,11 @@ button{cursor:pointer}
 .pet-scan-strip strong,.pet-scan-strip small{display:block}
 .pet-scan-strip strong{margin:6px 0;font:700 14px var(--display)}
 .pet-scan-strip small{color:var(--ink-soft);font-size:10px}
-.pet-catalog{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.pet-catalog button{min-height:145px;padding:15px;border:1px solid var(--border);border-radius:2px;background:rgba(255,255,255,.015);color:var(--ink)}
-.pet-catalog button span,.pet-catalog button strong{display:block}
-.pet-catalog button strong{margin-top:10px;font:700 11px var(--display)}
-.pet-catalog button small{display:block;margin-top:5px;font:700 8px var(--mono);letter-spacing:.08em}
-.pet-catalog button.active{border-color:rgba(159,191,74,.5);background:rgba(159,191,74,.04)}
-.pet-catalog button.locked{opacity:.4;filter:grayscale(.7);cursor:not-allowed}
-.pet-catalog button.locked:hover{border-color:var(--border)}
+.pet-catalog{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-height:480px;overflow-y:auto;
+  padding-right:6px;scrollbar-width:thin;scrollbar-color:var(--amber) #0a0908}
+.pet-catalog::-webkit-scrollbar{width:8px}
+.pet-catalog::-webkit-scrollbar-track{background:#0a0908}
+.pet-catalog::-webkit-scrollbar-thumb{background:var(--amber);border-radius:4px}
 .pet-thumb-locked{display:grid;place-items:center;height:72px;font:700 26px var(--mono);color:var(--ink-soft)}
 .pet-thumb{height:72px;display:grid;place-items:center}
 .radio-btn:disabled,.radio-btn.is-disabled{opacity:.35;cursor:not-allowed}
