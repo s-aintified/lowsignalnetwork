@@ -1,6 +1,3 @@
-// LOW SIGNAL — small cosmetic flourishes layered on top of app.js.
-// Tune-in text scramble + periodic glitch jumps on card-like panels.
-// Purely additive: never touches functional state, safe to include everywhere.
 (function(){
   var GLYPHS = "!<>-_\\/[]{}—=+*^?#";
 
