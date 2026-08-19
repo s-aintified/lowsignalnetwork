@@ -310,13 +310,13 @@ function setupPets(){
     }));
   }
 
-  root.querySelector("[data-scan-pet]").addEventListener("click",()=>{
+   root.querySelector("[data-scan-pet]").addEventListener("click",()=>{
     selected=lsnWeightedPet();
     discovered.add(selected.id);
     renderCatalog();show(selected);
     LSN.toast(`WILD SIGNAL FOUND // ${selected.name.toUpperCase()}`);
+    root.querySelector(".pet-adoption").scrollIntoView({behavior:"smooth",block:"center"});
   });
-
   root.querySelector("[data-adopt-pet]").addEventListener("click",()=>{
     if(!selected){LSN.toast("SCAN FOR A PET FIRST");return}
     const name=root.querySelector("[data-pet-name]").value.trim()||selected.name;
