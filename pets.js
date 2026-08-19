@@ -12,7 +12,7 @@ const LSN_PETS = [
   {id:"loop-owl",name:"Loop Owl",rarity:"uncommon",weight:8,palette:["#5FC9D6","#9498A0","#E4E6EA","#0A0A0A"],trait:"repeats the last thing it heard, forever",mood:"stuck on repeat",matrix:["00111100","01222210","12322321","12222221","12233221","01222210","00133100","01000010"]},
   {id:"vinyl-crackle",name:"Vinyl Crackle",rarity:"rare",weight:3,palette:["#D6E85C","#E85E7A","#E4E6EA","#0A0A0A"],trait:"sounds better than it should for something broken",mood:"warm distortion",matrix:["00222200","02333320","23311332","23133132","23311332","02333320","00222200","00011000"]},
   {id:"dead-pixel",name:"Dead Pixel",rarity:"glitched",weight:.4,palette:["#E4E6EA","#7A6FC4","#D6E85C","#0A0A0A"],trait:"technically should not be visible",mood:"rendering error",matrix:["00000000","00030000","00000000","03000030","00000000","00030000","00000000","00000300"]},
-  {id:"summer-signal",name:"Summer Signal",rarity:"seasonal",weight:0,palette:["#FB8B24","#D6E85C","#5FC9D6","#0A0A0A"],trait:"collects warm nights and parking-lot conversations",mood:"august forever",matrix:["00100100","11111111","01222210","12322321","12222221","12233221","01222210","10100101"]},
+  {id:"summer-signal",name:"Summer Signal",rarity:"super",weight:0,month:7,palette:["#FB8B24","#D6E85C","#5FC9D6","#0A0A0A"],trait:"collects warm nights and parking-lot conversations",mood:"august forever",matrix:["00100100","11111111","01222210","12322321","12222221","12233221","01222210","10100101"]},
   {id:"dial-deer",name:"Dial Tone Deer",rarity:"common",weight:22,palette:["#5FC9D6","#D98E3B","#E4E6EA","#0A0A0A"],trait:"hums the same three notes forever",mood:"patiently repetitive",matrix:["00100100","01011010","01111110","12222221","12322321","12222221","01222210","00100100"]},
   {id:"pixel-pigeon",name:"Pixel Pigeon",rarity:"common",weight:18,palette:["#E4E6EA","#D98E3B","#5FC9D6","#0A0A0A"],trait:"delivers messages nobody asked for",mood:"self-important",matrix:["00011000","00122100","01222210","12222321","12222221","01233210","00122100","01000010"]},
   {id:"rerun-rabbit",name:"Rerun Rabbit",rarity:"uncommon",weight:9,palette:["#D6E85C","#9498A0","#E4E6EA","#0A0A0A"],trait:"relives the same five minutes on a loop",mood:"stuck but hopeful",matrix:["01000010","01100110","01111110","12222221","12322321","12233221","01222210","00100100"]},
@@ -20,14 +20,25 @@ const LSN_PETS = [
   {id:"feedback-fox",name:"Feedback Fox",rarity:"rare",weight:2.5,palette:["#E85E7A","#D98E3B","#E4E6EA","#0A0A0A"],trait:"screeches right when things get quiet",mood:"dramatic timing",matrix:["10000001","11000011","01111110","12222221","12322321","12233221","01222210","01000010"]},
   {id:"test-pattern-tiger",name:"Test Pattern Tiger",rarity:"rare",weight:2,palette:["#D6E85C","#7A6FC4","#5FC9D6","#0A0A0A"],trait:"only appears during 3 AM reruns",mood:"nocturnal broadcast",matrix:["00111100","01212210","12322321","12123221","12232121","01222210","00121200","01000010"]},
   {id:"corrupted-koi",name:"Corrupted Koi",rarity:"glitched",weight:.4,palette:["#5FC9D6","#E85E7A","#D6E85C","#0A0A0A"],trait:"swims through broken video",mood:"rendering artifact",matrix:["00001111","00113221","01133221","11233211","11322331","12233110","11221100","11000000"]},
-  {id:"frost-static",name:"Frost Static",rarity:"seasonal",weight:0,palette:["#E4E6EA","#5FC9D6","#7A6FC4","#0A0A0A"],trait:"only tunes in during the cold months",mood:"december forever",matrix:["00100100","10111101","01111110","11222211","12322321","11222211","01111110","10100101"]},
+  {id:"frost-static",name:"Frost Static",rarity:"super",weight:0,month:11,palette:["#E4E6EA","#5FC9D6","#7A6FC4","#0A0A0A"],trait:"only tunes in during the cold months",mood:"december forever",matrix:["00100100","10111101","01111110","11222211","12322321","11222211","01111110","10100101"]},
   {id:"phantom-frequency",name:"Phantom Frequency",rarity:"uncommon",weight:8,palette:["#9498A0","#7A6FC4","#E4E6EA","#0A0A0A"],trait:"only exists between two stations",mood:"half-tuned",matrix:["00111100","01211210","12111121","11222211","12111121","11311131","01222210","00111100"]},
   {id:"circuit-sparrow",name:"Circuit Sparrow",rarity:"common",weight:19,palette:["#D6E85C","#E4E6EA","#5FC9D6","#0A0A0A"],trait:"nests in exposed wiring",mood:"electric but polite",matrix:["00010000","00111000","01211100","12222110","11222211","01222110","00133100","01000010"]},
   {id:"echo-eel",name:"Echo Eel",rarity:"rare",weight:2,palette:["#FB8B24","#7A6FC4","#E4E6EA","#0A0A0A"],trait:"repeats what you said ten seconds ago",mood:"delayed",matrix:["11000000","12110000","01221100","00122110","00012211","00001221","00000122","00000011"]},
-  {id:"broadcast-beetle",name:"Broadcast Beetle",rarity:"common",weight:16,palette:["#D98E3B","#0A0A0A","#E4E6EA","#5FC9D6"],trait:"clicks along to the emergency tone",mood:"industrious",matrix:["01000010","01311310","13333331","13322331","13333331","13322331","01333310","00100100"]}
+  {id:"broadcast-beetle",name:"Broadcast Beetle",rarity:"common",weight:16,palette:["#D98E3B","#0A0A0A","#E4E6EA","#5FC9D6"],trait:"clicks along to the emergency tone",mood:"industrious",matrix:["01000010","01311310","13333331","13322331","13333331","13322331","01333310","00100100"]},
+  {id:"resolution-ghost",name:"Resolution Ghost",rarity:"super",weight:0,month:0,palette:["#5FC9D6","#9498A0","#E4E6EA","#0A0A0A"],trait:"shows up every January promising to change, never does",mood:"temporarily inspired",matrix:["00010000","00111000","01211210","10122101","01211210","00111000","00010000","00100100"]},
+  {id:"lovesick-transmitter",name:"Lovesick Transmitter",rarity:"super",weight:0,month:1,palette:["#E85E7A","#FB8B24","#E4E6EA","#0A0A0A"],trait:"broadcasts feelings nobody asked to receive",mood:"embarrassingly sincere",matrix:["01100110","11111111","11322311","01233210","00133100","00013000","00010000","00000000"]},
+  {id:"squall-line",name:"Squall Line",rarity:"super",weight:0,month:2,palette:["#9498A0","#5FC9D6","#E4E6EA","#0A0A0A"],trait:"arrives loud, leaves without warning",mood:"blustery",matrix:["11000000","01110000","00111000","00011100","00001110","00000111","00000011","00000001"]},
+  {id:"raincheck-raccoon",name:"Rain Check Raccoon",rarity:"super",weight:0,month:3,palette:["#7A6FC4","#5FC9D6","#E4E6EA","#0A0A0A"],trait:"promises to show up later, rarely does",mood:"perpetually rescheduled",matrix:["00010000","00010000","00111000","01221100","01222210","01222210","01222210","00222200"]},
+  {id:"static-bloom",name:"Static Bloom",rarity:"super",weight:0,month:4,palette:["#D6E85C","#E85E7A","#5FC9D6","#0A0A0A"],trait:"the one good frequency all month",mood:"unreasonably optimistic",matrix:["00010000","00313000","03133130","13333331","03133130","00313000","00010000","00100100"]},
+  {id:"sunburst-cicada",name:"Sunburst Cicada",rarity:"super",weight:0,month:5,palette:["#D98E3B","#FB8B24","#E4E6EA","#0A0A0A"],trait:"only sings when it's unbearably hot",mood:"deafening",matrix:["10001000","01010100","00121000","10112101","00121000","01010100","10001000","00100100"]},
+  {id:"bottle-rocket-bat",name:"Bottle Rocket Bat",rarity:"super",weight:0,month:6,palette:["#E85E7A","#D6E85C","#5FC9D6","#0A0A0A"],trait:"loud, bright, gone in under a second",mood:"combustible",matrix:["00010000","00111000","01013010","10101101","01013010","00111000","00010000","01000010"]},
+  {id:"notebook-moth",name:"Notebook Moth",rarity:"super",weight:0,month:8,palette:["#9498A0","#D98E3B","#E4E6EA","#0A0A0A"],trait:"shows up right when everyone else has moved on",mood:"a little too late",matrix:["11111111","10000001","10322301","10000001","10133101","10000001","11111111","00100100"]},
+  {id:"static-specter",name:"Static Specter",rarity:"super",weight:0,month:9,palette:["#7A6FC4","#E85E7A","#E4E6EA","#0A0A0A"],trait:"the one time of year everyone actually wants a ghost",mood:"seasonally welcome",matrix:["01111110","12222221","12222221","11222211","10222201","11121111","10101010","00100100"]},
+  {id:"overcast-finch",name:"Overcast Finch",rarity:"super",weight:0,month:10,palette:["#9498A0","#D8CBB0","#5FC9D6","#0A0A0A"],trait:"shows up right when the sky gives up",mood:"quietly grey",matrix:["00000000","00111000","01222210","01222210","11222211","01222210","00111000","00000000"]},
+  {id:"ghost-station",name:"Ghost Station",rarity:"ultra",weight:0.05,palette:["#F5F5F5","#FFD86B","#FF3EC9","#0A0A0A"],trait:"a frequency that shouldn't exist and somehow still does",mood:"impossible signal",matrix:["00000000","00030000","00303000","03020300","00303000","00030000","00000200","00000000"]}
 ];
 
-const LSN_RARITY_COLORS={common:"#9498A0",uncommon:"#5FC9D6",rare:"#7A6FC4",glitched:"#E85E7A",seasonal:"#D98E3B"};
+const LSN_RARITY_COLORS={common:"#9498A0",uncommon:"#5FC9D6",rare:"#7A6FC4",glitched:"#E85E7A",seasonal:"#D98E3B",super:"#FBBF24",ultra:"#FF3EC9"};
 
 function lsnPetSvg(pet,size=160){
   const n=pet.matrix.length,cell=size/n;
@@ -61,14 +72,8 @@ function lsnSavePet(adoption){
 function lsnWeightedPet(){
   const today=new Date();
   const pool=LSN_PETS.filter(p=>p.weight>0).map(p=>({...p}));
-  if(today.getMonth()===7){
-    const seasonal=LSN_PETS.find(p=>p.id==="summer-signal");
-    pool.push({...seasonal,weight:2});
-  }
-  if(today.getMonth()===11){
-    const seasonal=LSN_PETS.find(p=>p.id==="frost-static");
-    pool.push({...seasonal,weight:2});
-  }
+  const monthly=LSN_PETS.find(p=>p.rarity==="super"&&p.month===today.getMonth());
+  if(monthly) pool.push({...monthly,weight:2});
   const total=pool.reduce((s,p)=>s+p.weight,0);
   let roll=Math.random()*total;
   for(const p of pool){roll-=p.weight;if(roll<=0)return p}
