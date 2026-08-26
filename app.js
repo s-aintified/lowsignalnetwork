@@ -419,23 +419,184 @@ function setupBadges(){
 
 
 
+const LSN_ZODIAC_SIGNS = [
+  {sign:"Aries", element:"fire", start:[3,21], end:[4,19]},
+  {sign:"Taurus", element:"earth", start:[4,20], end:[5,20]},
+  {sign:"Gemini", element:"air", start:[5,21], end:[6,20]},
+  {sign:"Cancer", element:"water", start:[6,21], end:[7,22]},
+  {sign:"Leo", element:"fire", start:[7,23], end:[8,22]},
+  {sign:"Virgo", element:"earth", start:[8,23], end:[9,22]},
+  {sign:"Libra", element:"air", start:[9,23], end:[10,22]},
+  {sign:"Scorpio", element:"water", start:[10,23], end:[11,21]},
+  {sign:"Sagittarius", element:"fire", start:[11,22], end:[12,21]},
+  {sign:"Capricorn", element:"earth", start:[12,22], end:[1,19]},
+  {sign:"Aquarius", element:"air", start:[1,20], end:[2,18]},
+  {sign:"Pisces", element:"water", start:[2,19], end:[3,20]}
+];
+
+const LSN_ELEMENT_MATCH = {
+  fire:{fire:78, earth:45, air:90, water:40},
+  earth:{fire:45, earth:82, air:50, water:88},
+  air:{fire:90, earth:50, air:72, water:55},
+  water:{fire:40, earth:88, air:55, water:85}
+};
+
+const LSN_ELEMENT_NOTE = {
+  fire:{fire:"Double the heat, double the risk of burnout.", earth:"Earth tries to contain fire. Exhausting for both.", air:"Air feeds fire. Combustible in the best way.", water:"Steam. Tension that never fully clears."},
+  earth:{fire:"Earth tries to contain fire. Exhausting for both.", earth:"Steady and grounded, maybe a little too comfortable.", air:"Earth wants roots, air wants room. Friction.", water:"Water nourishes earth. Deeply stabilizing."},
+  air:{fire:"Air feeds fire. Combustible in the best way.", earth:"Earth wants roots, air wants room. Friction.", air:"Stimulating and talkative, occasionally ungrounded.", water:"Air stirs water. Can feel unpredictable."},
+  water:{fire:"Steam. Tension that never fully clears.", earth:"Water nourishes earth. Deeply stabilizing.", air:"Air stirs water. Can feel unpredictable.", water:"Deep and intense, occasionally drowning."}
+};
+
+const LSN_ATTACH_MATCH = {
+  secure:{secure:95, anxious:80, avoidant:75, disorganized:70},
+  anxious:{secure:80, anxious:55, avoidant:35, disorganized:45},
+  avoidant:{secure:75, anxious:35, avoidant:60, disorganized:35},
+  disorganized:{secure:70, anxious:45, avoidant:35, disorganized:30}
+};
+
+const LSN_ATTACH_NOTE = {
+  secure:{secure:"Steady and steady. Low drama, by choice.", anxious:"One steady frequency can hold a lot.", avoidant:"Secure gives space without disappearing.", disorganized:"Secure supplies the stability the other is missing."},
+  anxious:{secure:"One steady frequency can hold a lot.", anxious:"A lot of feeling, pointed in both directions at once.", avoidant:"The classic push-pull. Familiar, not necessarily good.", disorganized:"Unpredictable highs and lows on both sides."},
+  avoidant:{secure:"Secure gives space without disappearing.", anxious:"The classic push-pull. Familiar, not necessarily good.", avoidant:"Plenty of space. Maybe too much of it.", disorganized:"Two guarded signals. Hard to get a clean read."},
+  disorganized:{secure:"Secure supplies the stability the other is missing.", anxious:"Unpredictable highs and lows on both sides.", avoidant:"Two guarded signals. Hard to get a clean read.", disorganized:"Static on both ends. Chaotic, sometimes by design."}
+};
+
+const LSN_ATTACH_LABEL = {secure:"SECURE", anxious:"ANXIOUS", avoidant:"AVOIDANT", disorganized:"DISORGANIZED"};
+
+function lsnCap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
+
+function lsnZodiacFromDate(dateStr){
+  if(!dateStr) return null;
+  const d = new Date(dateStr+"T00:00:00");
+  if(isNaN(d.getTime())) return null;
+  const m = d.getMonth()+1, day = d.getDate();
+  for(const z of LSN_ZODIAC_SIGNS){
+    const [sm,sd] = z.start, [em,ed] = z.end;
+    if(sm > em){
+      if((m===sm && day>=sd) || (m===em && day<=ed)) return z;
+    } else if(m===sm && day>=sd){
+      return z;
+    } else if(m===em && day<=ed){
+      return z;
+    } else if(m>sm && m<em){
+      return z;
+    }
+  }
+  return null;
+}
+
+function lsnAgeFromDate(dateStr){
+  const d = new Date(dateStr+"T00:00:00");
+  if(isNaN(d.getTime())) return null;
+  const now = new Date();
+  let age = now.getFullYear() - d.getFullYear();
+  const m = now.getMonth() - d.getMonth();
+  if(m < 0 || (m===0 && now.getDate() < d.getDate())) age--;
+  return age;
+}
+
+function lsnNameHarmony(nameA, nameB){
+  const la = (nameA||"").toLowerCase().replace(/[^a-z]/g,"").split("");
+  const lb = (nameB||"").toLowerCase().replace(/[^a-z]/g,"").split("");
+  if(!la.length || !lb.length) return {score:50, note:"Not enough letters to get a read."};
+  const counts = {};
+  la.forEach(c => counts[c] = (counts[c]||0) + 1);
+  let shared = 0;
+  lb.forEach(c => {
+    if(counts[c] > 0){ shared++; counts[c]--; }
+  });
+  const ratio = (2*shared) / (la.length + lb.length);
+  const score = Math.round(30 + ratio*65);
+  const note = shared === 0
+    ? "Not a single shared letter. Completely different frequencies."
+    : `${shared} shared letter${shared===1?"":"s"} between the two names.`;
+  return {score, note};
+}
+
+function lsnZodiacCompat(bdayA, bdayB){
+  const za = lsnZodiacFromDate(bdayA), zb = lsnZodiacFromDate(bdayB);
+  if(!za || !zb) return null;
+  const base = LSN_ELEMENT_MATCH[za.element][zb.element];
+  const sameSign = za.sign === zb.sign;
+  const score = Math.min(100, sameSign ? base + 8 : base);
+  const note = sameSign
+    ? `Both ${za.sign}. Same wavelength, for better or worse.`
+    : LSN_ELEMENT_NOTE[za.element][zb.element];
+  return {score, label:`${za.sign} + ${zb.sign}`, note};
+}
+
+function lsnAttachCompat(attachA, attachB){
+  if(!attachA || !attachB) return null;
+  const score = LSN_ATTACH_MATCH[attachA][attachB];
+  const note = LSN_ATTACH_NOTE[attachA][attachB];
+  const label = `${LSN_ATTACH_LABEL[attachA]} + ${LSN_ATTACH_LABEL[attachB]}`;
+  return {score, label, note};
+}
+
+function lsnAgeModifier(bdayA, bdayB){
+  if(!bdayA || !bdayB) return {mod:0, note:null};
+  const ageA = lsnAgeFromDate(bdayA), ageB = lsnAgeFromDate(bdayB);
+  if(ageA===null || ageB===null) return {mod:0, note:null};
+  const gap = Math.abs(ageA - ageB);
+  if(gap <= 2) return {mod:4, note:`${gap}-year gap. Same lap of the track.`};
+  if(gap <= 6) return {mod:0, note:`${gap}-year gap. Barely registers.`};
+  if(gap <= 12) return {mod:-3, note:`${gap}-year gap. Different reference points, not a dealbreaker.`};
+  return {mod:-6, note:`${gap}-year gap. Different eras, basically.`};
+}
+
 function setupCompatibility(){
-  const root=document.querySelector("[data-compat]");if(!root)return;
-  root.querySelector("[data-compat-run]").addEventListener("click",()=>{
-    const av=root.querySelector("[data-compat-a]").value.trim();
-    const bv=root.querySelector("[data-compat-b]").value.trim();
-    if(!av||!bv){LSN.toast("TWO SIGNALS REQUIRED");return}
-    const key=(av.toLowerCase()+"|"+bv.toLowerCase()).split("").reduce((s,c)=>((s*31)+c.charCodeAt(0))>>>0,7);
-    const score=35+(key%66);
-    let title,copy;
-    if(score>=90){title="DANGEROUSLY COMPATIBLE";copy="The signal is clear. Whether that is good news is another question."}
-    else if(score>=75){title="STRONG RECEPTION";copy="Easy chemistry with enough friction to keep the plot alive."}
-    else if(score>=60){title="WORKABLE FREQUENCY";copy="Not effortless, but there is definitely something worth tuning."}
-    else if(score>=45){title="CROSSED WIRES";copy="Communication may require subtitles and several arguments."}
-    else{title="ACTIVE INTERFERENCE";copy="This may be terrible. That does not mean it will be boring."}
-    root.querySelector("[data-compat-score]").textContent=score+"%";
-    root.querySelector("[data-compat-title]").textContent=title;
-    root.querySelector("[data-compat-copy]").textContent=copy;
+  const root = document.querySelector("[data-compat]");
+  if(!root) return;
+
+  root.querySelector("[data-compat-run]").addEventListener("click", () => {
+    const nameA = root.querySelector("[data-compat-a]").value.trim();
+    const nameB = root.querySelector("[data-compat-b]").value.trim();
+    if(!nameA || !nameB){ LSN.toast("TWO SIGNALS REQUIRED"); return; }
+
+    const bdayA = root.querySelector("[data-compat-a-bday]").value;
+    const bdayB = root.querySelector("[data-compat-b-bday]").value;
+    const attachA = root.querySelector("[data-compat-a-attach]").value;
+    const attachB = root.querySelector("[data-compat-b-attach]").value;
+
+    const parts = [];
+    const nameScore = lsnNameHarmony(nameA, nameB);
+    parts.push({weight:1, score:nameScore.score, label:"NAME HARMONY", note:nameScore.note});
+
+    const zodiac = lsnZodiacCompat(bdayA, bdayB);
+    if(zodiac) parts.push({weight:1.4, score:zodiac.score, label:`ZODIAC — ${zodiac.label}`, note:zodiac.note});
+
+    const attach = lsnAttachCompat(attachA, attachB);
+    if(attach) parts.push({weight:1.4, score:attach.score, label:`ATTACHMENT — ${attach.label}`, note:attach.note});
+
+    const ageMod = lsnAgeModifier(bdayA, bdayB);
+
+    const totalWeight = parts.reduce((s,p) => s+p.weight, 0);
+    let score = parts.reduce((s,p) => s+p.score*p.weight, 0) / totalWeight;
+    score = Math.round(score) + ageMod.mod;
+    score = Math.max(5, Math.min(99, score));
+
+    let title, copy;
+    if(score >= 90){ title="DANGEROUSLY COMPATIBLE"; copy="The signal is clear. Whether that is good news is another question."; }
+    else if(score >= 75){ title="STRONG RECEPTION"; copy="Easy chemistry with enough friction to keep the plot alive."; }
+    else if(score >= 60){ title="WORKABLE FREQUENCY"; copy="Not effortless, but there is definitely something worth tuning."; }
+    else if(score >= 45){ title="CROSSED WIRES"; copy="Communication may require subtitles and several arguments."; }
+    else{ title="ACTIVE INTERFERENCE"; copy="This may be terrible. That does not mean it will be boring."; }
+
+    root.querySelector("[data-compat-score]").textContent = score + "%";
+    root.querySelector("[data-compat-title]").textContent = title;
+    root.querySelector("[data-compat-copy]").textContent = copy;
+
+    const breakdown = root.querySelector("[data-compat-breakdown]");
+    breakdown.innerHTML = parts.map(p => `
+      <div class="compat-factor">
+        <div class="compat-factor-top"><span>${p.label}</span><b>${Math.round(p.score)}%</b></div>
+        <small>${p.note}</small>
+      </div>
+    `).join("");
+
+    const ageNote = root.querySelector("[data-compat-agenote]");
+    ageNote.textContent = ageMod.note ? `AGE — ${ageMod.note}` : "";
   });
 }
 
