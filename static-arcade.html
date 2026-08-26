@@ -88,8 +88,40 @@
 <section class="arcade-tool radio-panel" id="compat" data-compat>
   <div class="tool-heading"><div><span class="eyebrow">TOY 004 // EXTREMELY SCIENTIFIC</span><h2>COMPATIBILITY <span>CALCULATOR.</span></h2></div><span class="tool-number">004</span></div>
   <div class="compat-layout">
-    <div class="compat-inputs"><label>FIRST NAME<input data-compat-a placeholder="character one"></label><span>×</span><label>SECOND NAME<input data-compat-b placeholder="character two"></label><button class="radio-btn primary" data-compat-run>CALCULATE SIGNAL</button></div>
-    <div class="compat-result"><span class="display-label">MATCH STRENGTH</span><strong data-compat-score>--%</strong><h3 data-compat-title>WAITING FOR TWO SIGNALS.</h3><p data-compat-copy>Enter two names and let an absolutely unlicensed algorithm judge them.</p></div>
+    <div class="compat-inputs">
+      <div class="compat-person">
+        <label>CHARACTER ONE<input data-compat-a placeholder="name"></label>
+        <label>BIRTHDAY (OPTIONAL)<input type="date" data-compat-a-bday></label>
+        <label>ATTACHMENT STYLE (OPTIONAL)<select data-compat-a-attach>
+          <option value="">SKIP</option>
+          <option value="secure">SECURE</option>
+          <option value="anxious">ANXIOUS</option>
+          <option value="avoidant">AVOIDANT</option>
+          <option value="disorganized">DISORGANIZED</option>
+        </select></label>
+      </div>
+      <span>×</span>
+      <div class="compat-person">
+        <label>CHARACTER TWO<input data-compat-b placeholder="name"></label>
+        <label>BIRTHDAY (OPTIONAL)<input type="date" data-compat-b-bday></label>
+        <label>ATTACHMENT STYLE (OPTIONAL)<select data-compat-b-attach>
+          <option value="">SKIP</option>
+          <option value="secure">SECURE</option>
+          <option value="anxious">ANXIOUS</option>
+          <option value="avoidant">AVOIDANT</option>
+          <option value="disorganized">DISORGANIZED</option>
+        </select></label>
+      </div>
+      <button class="radio-btn primary" data-compat-run>CALCULATE SIGNAL</button>
+    </div>
+    <div class="compat-result">
+      <span class="display-label">MATCH STRENGTH</span>
+      <strong data-compat-score>--%</strong>
+      <h3 data-compat-title>WAITING FOR TWO SIGNALS.</h3>
+      <p data-compat-copy>Enter two names — add a birthday and attachment style for each for a fuller reading.</p>
+      <div class="compat-breakdown" data-compat-breakdown></div>
+      <small class="compat-agenote" data-compat-agenote></small>
+    </div>
   </div>
 </section>
 
