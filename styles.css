@@ -211,7 +211,7 @@ button{cursor:pointer}
 .quiz-intro h3{margin:0 0 18px;font:500 23px var(--display)}
 .quiz-intro p{max-width:640px;color:var(--ink-soft)}
 .character-name-field{display:block;max-width:440px;margin:26px 0 16px;color:var(--ink-soft);font:8px var(--mono);letter-spacing:.12em}
-.character-name-field input,.tool-controls input,.tool-controls select,.pet-adoption input,.compat-inputs input,
+.character-name-field input,.tool-controls input,.tool-controls select,.pet-adoption input,.compat-inputs input,.compat-inputs select,
 .claim-form>label>input,.int-input-grid input{
   width:100%;height:44px;margin-top:8px;padding:0 13px;border:1px solid var(--border);border-radius:2px;
   outline:0;background:#0a0908;color:var(--ink)}
@@ -299,6 +299,13 @@ button{cursor:pointer}
 .pet-catalog::-webkit-scrollbar{width:8px}
 .pet-catalog::-webkit-scrollbar-track{background:#0a0908}
 .pet-catalog::-webkit-scrollbar-thumb{background:var(--amber);border-radius:4px}
+.pet-catalog button{min-height:145px;padding:15px;border:1px solid var(--border);border-radius:2px;background:rgba(255,255,255,.015);color:var(--ink)}
+.pet-catalog button span,.pet-catalog button strong{display:block}
+.pet-catalog button strong{margin-top:10px;font:700 11px var(--display)}
+.pet-catalog button small{display:block;margin-top:5px;font:700 8px var(--mono);letter-spacing:.08em}
+.pet-catalog button.active{border-color:rgba(159,191,74,.5);background:rgba(159,191,74,.04)}
+.pet-catalog button.locked{opacity:.4;filter:grayscale(.7);cursor:not-allowed}
+.pet-catalog button.locked:hover{border-color:var(--border)}
 .pet-thumb-locked{display:grid;place-items:center;height:72px;font:700 26px var(--mono);color:var(--ink-soft)}
 .pet-thumb{height:72px;display:grid;place-items:center}
 .radio-btn:disabled,.radio-btn.is-disabled{opacity:.35;cursor:not-allowed}
@@ -329,14 +336,43 @@ input:disabled{opacity:.4;cursor:not-allowed}
   background:#0a0908;color:var(--cyan);font:700 11px/1.55 var(--mono)}
 
 .compat-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:14px}
-.compat-inputs{padding:26px;transform:rotate(-.6deg);display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:end}
+.compat-inputs{padding:26px;transform:rotate(-.6deg);display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:start}
 .compat-result{padding:26px;transform:rotate(.5deg)}
 .compat-inputs label{color:var(--ink-soft);font:8px var(--mono);letter-spacing:.12em}
-.compat-inputs>span{padding-bottom:12px;color:var(--amber);font:700 22px var(--display)}
+.compat-person{display:flex;flex-direction:column;gap:12px}
+.compat-inputs>span{align-self:center;color:var(--amber);font:700 22px var(--display)}
+.compat-inputs select{appearance:none}
 .compat-inputs .radio-btn{grid-column:1/-1;margin-top:8px}
 .compat-result strong{display:block;margin:16px 0 4px;color:var(--cyan);font:700 clamp(60px,9vw,120px)/1 var(--display)}
 .compat-result h3{margin:0;font:800 30px var(--display)}
 .compat-result p{color:var(--ink-soft)}
+.compat-breakdown{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.compat-factor{padding:10px 12px;border:1px solid var(--border);border-radius:2px;background:rgba(255,255,255,.02)}
+.compat-factor-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font:700 9px var(--mono);letter-spacing:.08em;color:var(--ink-soft)}
+.compat-factor-top b{color:var(--cyan);font:700 13px var(--display)}
+.compat-factor small{display:block;margin-top:4px;color:var(--ink-soft);font-size:12px}
+.compat-agenote{display:block;margin-top:10px;color:var(--ink-soft);font:8px var(--mono);letter-spacing:.08em}
+
+.match-layout{display:grid;grid-template-columns:1.3fr .7fr;gap:14px}
+.match-board-panel{padding:22px;transform:rotate(-.5deg);display:flex;flex-direction:column;align-items:center}
+.match-board{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;width:100%;max-width:420px}
+.match-tile{aspect-ratio:1;display:grid;place-items:center;border:1px solid var(--border);border-radius:2px;
+  background:rgba(255,255,255,.02);font-size:clamp(18px,4vw,26px);line-height:1;transition:transform .12s ease,border-color .12s ease,background .12s ease;padding:0}
+.match-tile:hover:not(:disabled){border-color:var(--amber);transform:translateY(-1px)}
+.match-tile:disabled{cursor:default}
+.match-tile.selected{border-color:var(--cyan);background:rgba(79,140,134,.14);box-shadow:0 0 0 2px rgba(79,140,134,.35) inset}
+.match-tile.invalid{animation:matchShake .3s}
+.match-tile.cleared{animation:matchPop .28s ease-out}
+@keyframes matchShake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@keyframes matchPop{0%{transform:scale(1.2);opacity:.3}100%{transform:scale(1);opacity:1}}
+.match-message{margin-top:16px;width:100%;max-width:420px;min-height:44px;padding:12px 14px;border:1px solid rgba(79,140,134,.3);
+  border-radius:2px;background:#0a0908;color:var(--cyan);font:700 10px/1.55 var(--mono)}
+.match-message.is-over{border-color:rgba(201,122,50,.4);color:var(--amber)}
+.match-panel{padding:22px;transform:rotate(.5deg);display:flex;flex-direction:column}
+.match-stat{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--border)}
+.match-stat:first-of-type{padding-top:0}
+.match-stat strong{font:700 26px var(--display);color:var(--amber)}
+.match-instructions{margin:14px 0 18px;color:var(--ink-soft);font-size:12px}
 
 /* ============= badge case ============= */
 .badge-filters{padding:26px 0 14px;display:flex;flex-wrap:wrap;gap:7px}
@@ -503,7 +539,7 @@ input:disabled{opacity:.4;cursor:not-allowed}
   display:grid;place-items:center;font:32px var(--display);color:var(--violet)}
 
 @media(max-width:1050px){
-  .hero-lower,.two-col-feature,.result-layout,.interference-layout,.tool-layout,.pets-layout,.oracle-layout,.report-cover{grid-template-columns:1fr}
+  .hero-lower,.two-col-feature,.result-layout,.interference-layout,.tool-layout,.pets-layout,.oracle-layout,.report-cover,.match-layout{grid-template-columns:1fr}
   .hero-lower>div+div{border-left:0;border-top:1px dashed var(--border)}
   .channel-grid,.quiz-board-grid,.report-grid{grid-template-columns:1fr}
   .channel-card.feature,.report-story.wide{grid-column:auto}
