@@ -160,6 +160,19 @@ const LSN_QUIZZES = [
       social:{title:"PUBLIC BROADCAST",code:"SOC",freq:"97.7",color:"#D6E85C",desc:"Your mess keeps acquiring witnesses.",badge:"quiz-chaossocial"}
     },
     questions:[
+      {q:"Your phone rings with bad news. Who is it?",a:[["An ex.","romance"],["Someone who's about to tell the whole group chat.","social"],["Someone who should not have my number.","crime"],["My boss.","career"]]},
+      {q:"What secret is hardest to contain?",a:[["Who I want.","romance"],["What happened at home.","family"],["What people are already saying about me.","social"],["What happened at work.","career"]]},
+      {q:"Where does drama find you?",a:[["Dating.","romance"],["Family gatherings.","family"],["Behind closed doors.","crime"],["In front of everybody.","social"]]},
+      {q:"Worst notification?",a:[["'Can we talk?'","romance"],["'Everyone's asking where you were last night.'","social"],["Unknown number.","crime"],["'Meeting added to your calendar.'","career"]]},
+      {q:"Your chaos becomes everybody else's because...",a:[["People take sides.","social"],["Family tells everybody.","family"],["There are witnesses.","crime"],["I work with half the people involved.","career"]]},
+      {q:"You get a text that just says 'we need to talk.'",a:[["It's romantic and it's bad.","romance"],["It's a relative and it's worse.","family"],["It's about something half our friend group already knows.","social"],["It's my boss and it's about to ruin my week.","career"]]},
+      {q:"What's the actual plot of your life right now?",a:[["A situationship with no clear ending.","romance"],["A public spectacle everyone has an opinion on.","social"],["Something that would not hold up in court.","crime"],["A slow-motion workplace disaster.","career"]]},
+      {q:"Everyone's staring. What happened?",a:[["I said something I shouldn't have, publicly.","social"],["A family member made a scene.","family"],["Someone found out what actually happened.","crime"],["I got called out in a meeting.","career"]]},
+      {q:"What do your friends beg you to stop doing?",a:[["Going back to the same person.","romance"],["Answering calls from that relative.","family"],["Airing things out where everyone can see.","social"],["Talking about work outside of work.","career"]]},
+      {q:"If your life were a group chat, what would the pinned message be?",a:[["'Do NOT text them back.'","romance"],["'Update: mom called again.'","family"],["'We are never speaking of this.'","crime"],["'Vent channel for work drama only.'","career"]]}
+    ]
+  },
+    questions:[
       {q:"Your phone rings with bad news. Who is it?",a:[["An ex.","romance"],["A relative.","family"],["Someone who should not have my number.","crime"],["My boss.","career"]]},
       {q:"What secret is hardest to contain?",a:[["Who I want.","romance"],["What happened at home.","family"],["What I did.","crime"],["What happened at work.","career"]]},
       {q:"Where does drama find you?",a:[["Dating.","romance"],["Family gatherings.","family"],["Behind closed doors.","crime"],["In front of everybody.","social"]]},
