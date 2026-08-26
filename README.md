@@ -1,6 +1,5 @@
 # Low Signal Network // Expanded Build
 
-Upload everything in this folder to the root of the `low-signal-network` repository.
 
 ## Pages
 - index.html
@@ -26,5 +25,4 @@ Upload everything in this folder to the root of the `low-signal-network` reposit
 - Signal Pets: 25 adoptable species with weighted rarity, August + December seasonal pets, gacha-style scan-to-discover catalog, naming, adoption certificates, collection tracking, and a full species index
 - Signal Report archive
 
-GitHub Pages:
-Settings → Pages → Deploy from branch → main / root
+
