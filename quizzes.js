@@ -17,7 +17,7 @@ const LSN_QUIZZES = [
       dead:{title:"DEAD AIR", code:"OFF", freq:"89.1", color:"#9498A0", desc:"Private, guarded and difficult to reach once you shut the door. Your silence communicates plenty even when you swear it does not.", badge:"quiz-dead"},
       echo:{title:"ECHO SIGNAL", code:"ECH", freq:"103.9", color:"#FB8B24", desc:"People linger in you. Memories, grudges, love and old conversations have excellent acoustics in your head.", badge:"quiz-echo"}
     },
-    questions:[
+    questions:]
       {q:"Someone asks what is wrong. What do you do?", a:[["Tell them plainly.","open"],["Say nothing until much later.","midnight"],["Make a joke and redirect.","static"],["Leave them on read.","dead"]]},
       {q:"Your plans fall apart at the last second.", a:[["Fix it. Somebody has to.","emergency"],["Make a better plan on the fly.","pirate"],["Pretend you do not care.","dead"],["Text the one person you actually trust.","midnight"]]},
       {q:"Which kind of attention feels best?", a:[["Consistent and obvious.","open"],["Private and intense.","midnight"],["The kind I was not supposed to get.","pirate"],["I do not know until it is gone.","echo"]]},
@@ -172,19 +172,7 @@ const LSN_QUIZZES = [
       {q:"If your life were a group chat, what would the pinned message be?",a:[["'Do NOT text them back.'","romance"],["'Update: mom called again.'","family"],["'We are never speaking of this.'","crime"],["'Vent channel for work drama only.'","career"]]}
     ]
   },
-    questions:[
-      {q:"Your phone rings with bad news. Who is it?",a:[["An ex.","romance"],["A relative.","family"],["Someone who should not have my number.","crime"],["My boss.","career"]]},
-      {q:"What secret is hardest to contain?",a:[["Who I want.","romance"],["What happened at home.","family"],["What I did.","crime"],["What happened at work.","career"]]},
-      {q:"Where does drama find you?",a:[["Dating.","romance"],["Family gatherings.","family"],["Behind closed doors.","crime"],["In front of everybody.","social"]]},
-      {q:"Worst notification?",a:[["'Can we talk?'","romance"],["'Call your mother.'","family"],["Unknown number.","crime"],["'Meeting added to your calendar.'","career"]]},
-      {q:"Your chaos becomes everybody else's because...",a:[["People take sides.","social"],["Family tells everybody.","family"],["There are witnesses.","crime"],["I work with half the people involved.","career"]]},
-      {q:"You get a text that just says 'we need to talk.'",a:[["It's romantic and it's bad.","romance"],["It's a relative and it's worse.","family"],["It's about something I'd rather not explain.","crime"],["It's my boss and it's about to ruin my week.","career"]]},
-      {q:"What's the actual plot of your life right now?",a:[["A situationship with no clear ending.","romance"],["A family situation nobody outside would believe.","family"],["Something that would not hold up in court.","crime"],["A slow-motion workplace disaster.","career"]]},
-      {q:"Everyone's staring. What happened?",a:[["I said something I shouldn't have, publicly.","social"],["A family member made a scene.","family"],["Someone found out what actually happened.","crime"],["I got called out in a meeting.","career"]]},
-      {q:"What do your friends beg you to stop doing?",a:[["Going back to the same person.","romance"],["Answering calls from that relative.","family"],["Getting involved in things above my pay grade.","crime"],["Talking about work outside of work.","career"]]},
-      {q:"If your life were a group chat, what would the pinned message be?",a:[["'Do NOT text them back.'","romance"],["'Update: mom called again.'","family"],["'We are never speaking of this.'","crime"],["'Vent channel for work drama only.'","career"]]}
-    ]
-  },
+    
   {id:"socialbattery",number:"007",title:"SOCIAL BATTERY",question:"How long before your character needs everybody to go home?",description:"A diagnosis of your character's people tolerance, recharge habits and social survival strategy.",time:"2 min",categories:["solar","selective","night","ghost"],results:{
     solar:{title:"ALWAYS ON AIR",code:"ON",freq:"91.4",color:"#D6E85C",desc:"People charge you. Somehow. Scientists remain concerned.",badge:"quiz-social-solar"},
     selective:{title:"PRIVATE FREQUENCY",code:"PVT",freq:"96.2",color:"#5FC9D6",desc:"You like people. Specifically your people. Everybody else may leave a message.",badge:"quiz-social-selective"},
