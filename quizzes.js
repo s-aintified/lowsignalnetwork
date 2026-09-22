@@ -17,7 +17,7 @@ const LSN_QUIZZES = [
       dead:{title:"DEAD AIR", code:"OFF", freq:"89.1", color:"#9498A0", desc:"Private, guarded and difficult to reach once you shut the door. Your silence communicates plenty even when you swear it does not.", badge:"quiz-dead"},
       echo:{title:"ECHO SIGNAL", code:"ECH", freq:"103.9", color:"#FB8B24", desc:"People linger in you. Memories, grudges, love and old conversations have excellent acoustics in your head.", badge:"quiz-echo"}
     },
-    questions:]
+    questions:[
       {q:"Someone asks what is wrong. What do you do?", a:[["Tell them plainly.","open"],["Say nothing until much later.","midnight"],["Make a joke and redirect.","static"],["Leave them on read.","dead"]]},
       {q:"Your plans fall apart at the last second.", a:[["Fix it. Somebody has to.","emergency"],["Make a better plan on the fly.","pirate"],["Pretend you do not care.","dead"],["Text the one person you actually trust.","midnight"]]},
       {q:"Which kind of attention feels best?", a:[["Consistent and obvious.","open"],["Private and intense.","midnight"],["The kind I was not supposed to get.","pirate"],["I do not know until it is gone.","echo"]]},
