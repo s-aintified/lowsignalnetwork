@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Badge Art // Low Signal Network</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Oswald:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Work+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="ls-head">
+<div class="ls-topline">
+  <span><b>LWSGNL</b> · 91.4 FM · <span class="blink">on air, probably</span></span>
+  <span class="ls-topline-r">Low Signals Mini Playground</span>
+</div>
+
+<a href="index.html" style="text-decoration:none">
+<div class="ls-label">
+  <span>low signal network</span>
+  <small>THE MINI SITE // NOT THE BOARD</small>
+</div>
+</a>
+
+<nav class="ls-nav"><a href="index.html" class="">HOME</a><a href="quiz-board.html" class="">QUIZ BOARD</a><a href="interference.html" class="">INTERFERENCE</a><a href="static-arcade.html" class="">STATIC ARCADE</a><a href="signal-report.html" class="">SIGNAL REPORT</a><a href="badge-case.html" class="">BADGE CASE</a></nav>
+</div>
+
+<main id="page">
+<section class="page-title">
+  <div>
+    <span class="eyebrow">STAFF // BADGE ART EXPORT</span>
+    <h1>BADGE <span>ART.</span></h1>
+    <p>Every badge image, for the store. Click one to save it, or grab the whole set.</p>
+  </div>
+  <div class="badge-tally"><span>TOTAL</span><strong><b data-art-count>0</b></strong><small>BADGE IMAGES</small></div>
+</section>
+<section class="art-tools">
+  <select data-art-size>
+    <option value="100">100 × 100</option>
+    <option value="150">150 × 150</option>
+    <option value="200" selected>200 × 200</option>
+    <option value="300">300 × 300</option>
+    <option value="400">400 × 400</option>
+  </select>
+  <button class="radio-btn primary" data-art-zip>DOWNLOAD ALL (ZIP)</button>
+  <span class="muted" data-art-status></span>
+</section>
+<section class="art-sheet" data-art-sheet></section>
+</main>
+
+<footer class="network-footer">
+  <span><b>LWSGNL</b> // LOW SIGNAL NETWORK</span>
+  <span>91.4 FM · end transmission</span>
+</footer>
+
+<div class="toast" data-toast></div>
+<script src="config.js"></script>
+<script src="pets.js"></script>
+<script src="badge-art.js"></script>
+<script src="app.js"></script>
+<script src="effects.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  const sheet=document.querySelector("[data-art-sheet]"),sizeSel=document.querySelector("[data-art-size]"),status=document.querySelector("[data-art-status]");
+  document.querySelector("[data-art-count]").textContent=LSN_BADGES.length;
+  sheet.innerHTML=LSN_BADGES.map(b=>`<div class="art-tile" data-id="${b.id}" title="Save ${b.name}"><div class="badge-art">${LSNArt.svg(b)}</div><small>${b.id}.png</small></div>`).join("");
+  sheet.addEventListener("click",async e=>{
+    const t=e.target.closest(".art-tile");if(!t)return;
+    const b=LSN_BADGES.find(x=>x.id===t.dataset.id);
+    LSNArt.save(await LSNArt.png(b,+sizeSel.value),b.id+".png");
+  });
+  document.querySelector("[data-art-zip]").addEventListener("click",async e=>{
+    const btn=e.currentTarget;btn.disabled=true;const px=+sizeSel.value,files=[];
+    for(let i=0;i<LSN_BADGES.length;i++){const b=LSN_BADGES[i];status.textContent=`rendering ${i+1}/${LSN_BADGES.length}`;files.push({name:b.id+".png",blob:await LSNArt.png(b,px)})}
+    LSNArt.save(await LSNArt.zip(files),`lsn-badges-${px}px.zip`);status.textContent="done";btn.disabled=false;
+  });
+});
+</script>
+</body>
+</html>
