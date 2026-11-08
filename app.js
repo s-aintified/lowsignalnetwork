@@ -1,4 +1,3 @@
-
 const LSN_BADGES = [
   {id:"quiz-social-solar",cat:"quiz",name:"ALWAYS ON AIR",code:"ON",desc:"Social Battery result.",hint:"Earn through Social Battery."},
   {id:"quiz-social-selective",cat:"quiz",name:"PRIVATE FREQUENCY",code:"PVT",desc:"Social Battery result.",hint:"Earn through Social Battery."},
@@ -392,7 +391,7 @@ function setupBadges(){
     grid.innerHTML=list.map(b=>{
       const yes=unlocked.includes(b.id);
       return `<article class="badge-card ${yes?"unlocked":"locked"}" data-cat="${b.cat}">
-        <div class="badge-emblem"><span>${yes?b.code:"??"}</span></div>
+        ${typeof LSNArt!=="undefined"?`<div class="badge-art">${LSNArt.svg(b,{locked:!yes})}</div>`:`<div class="badge-emblem"><span>${yes?b.code:"??"}</span></div>`}
         <small>${b.cat.toUpperCase()} // ${yes?"UNLOCKED":"LOCKED"}</small>
         <h3>${yes?b.name:"UNKNOWN SIGNAL"}</h3>
         <p>${yes?b.desc:b.hint}</p>
