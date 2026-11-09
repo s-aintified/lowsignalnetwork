@@ -1,9 +1,3 @@
-/* =========================================================
-   LOW SIGNAL NETWORK // BADGE ART
-   Builds every badge image from data. Three styles:
-   dial (signal quizzes), tape (romance/emotional), pin (character types + extras)
-   Load BEFORE app.js.
-   ========================================================= */
 const LSN_BADGE_ART = {
   "quiz-open":["dial", "#5FC9D6", "92.8"],
   "quiz-midnight":["dial", "#7A6FC4", "101.3"],
